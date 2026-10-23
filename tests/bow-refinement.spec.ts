@@ -1,5 +1,41 @@
 import { test, expect } from '@playwright/test';
 
+for (const width of [390, 1440]) {
+  test(`every visit and reload starts with a tied envelope at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 844 });
+    await page.emulateMedia({ reducedMotion: 'no-preference' });
+    // A marker saved by an older version must no longer skip the invitation.
+    await page.addInitScript(() => {
+      sessionStorage.setItem('little-secret-december-2026:opened', 'yes');
+    });
+    await page.goto('/#prediction');
+    const dialog = page.getByRole('dialog');
+    const open = page.getByRole('button', { name: 'Відкрити запрошення', exact: true });
+    await expect(dialog).toBeVisible();
+    await open.click();
+    await expect(dialog).toHaveCount(0);
+
+    await page.reload();
+    await expect(dialog).toBeVisible();
+    await expect(page.locator('.card-door-left')).toHaveCSS('transform', 'none');
+    await expect(page.locator('.satin-loop-blue')).not.toHaveAttribute('transform', /matrix/);
+    await expect(open).toBeEnabled();
+    await open.click();
+    await page.waitForTimeout(350);
+    await page.reload();
+    await expect(dialog).toBeVisible();
+    await expect(page.locator('.card-door-left')).toHaveCSS('transform', 'none');
+    await expect(page.locator('.satin-loop-blue')).not.toHaveAttribute('transform', /matrix/);
+    await open.click();
+    await expect(dialog).toHaveCount(0);
+
+    await page.goto('/');
+    await expect(dialog).toBeVisible();
+    await expect(open).toBeInViewport();
+    await expect(open).toBeEnabled();
+  });
+}
+
 test('satin bow unties before the doors open; replay and interrupted opening reset', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');

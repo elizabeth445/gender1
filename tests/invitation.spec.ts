@@ -85,6 +85,7 @@ test('prediction persists, can change, and never fabricates global votes', async
     page.getByText('Ваш прогноз збережено! Скоро дізнаємося, хто мав рацію.'),
   ).toBeVisible();
   await page.reload();
+  await page.getByRole('button', { name: 'Перейти до запрошення', exact: true }).click();
   await expect(page.getByRole('button', { name: /Хлопчик/ })).toHaveAttribute(
     'aria-pressed',
     'true',
@@ -95,6 +96,7 @@ test('prediction persists, can change, and never fabricates global votes', async
     'false',
   );
   await page.reload();
+  await page.getByRole('button', { name: 'Перейти до запрошення', exact: true }).click();
   await expect(page.getByRole('button', { name: /Дівчинка/ })).toHaveAttribute(
     'aria-pressed',
     'true',
@@ -136,6 +138,7 @@ test('balloon flight rises, handles repeat choices, and stops when motion is red
   await expect(page.locator('.balloon-flight')).toHaveCount(0);
   await expect(girl.locator('.balloon')).toHaveCSS('opacity', '1');
   await page.reload();
+  await page.getByRole('button', { name: 'Перейти до запрошення', exact: true }).click();
   await expect(girl).toHaveAttribute('aria-pressed', 'true');
 });
 
@@ -151,6 +154,7 @@ test('RSVP validates, saves, reloads, and edits yes to no', async ({ page }) => 
   await expect(page.locator('.rsvp-success')).toContainText('Євгенія!');
   await expect(page.locator('.rsvp-success')).toContainText('До зустрічі');
   await page.reload();
+  await page.getByRole('button', { name: 'Перейти до запрошення', exact: true }).click();
   await expect(page.locator('.rsvp-success')).toContainText('Нехай щастя буде безмежним!');
   await page.getByRole('button', { name: 'Змінити відповідь' }).click();
   await expect(page.getByLabel('Ваше ім’я')).toHaveValue('Євгенія');

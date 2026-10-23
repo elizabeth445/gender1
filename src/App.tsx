@@ -15,14 +15,6 @@ import { ScrollRibbon } from './components/ScrollRibbon';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-function initialInvitation() {
-  try {
-    return sessionStorage.getItem(`${eventConfig.id}:opened`) !== 'yes';
-  } catch {
-    return true;
-  }
-}
-
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggle = useRef<HTMLButtonElement>(null);
@@ -131,15 +123,10 @@ function Hero() {
 }
 
 export default function App() {
-  const [introOpen, setIntroOpen] = useState(initialInvitation);
+  const [introOpen, setIntroOpen] = useState(true);
   const root = useRef<HTMLDivElement>(null);
   const heroFocus = useRef<HTMLDivElement>(null);
   const closeInvitation = () => {
-    try {
-      sessionStorage.setItem(`${eventConfig.id}:opened`, 'yes');
-    } catch {
-      /* Session storage is optional. */
-    }
     setIntroOpen(false);
     requestAnimationFrame(() => heroFocus.current?.focus({ preventScroll: true }));
   };
