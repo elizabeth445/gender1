@@ -1,0 +1,640 @@
+/* A larger handwritten letter and a stationery still life extend the invitation's materials. */
+.story {
+  grid-template-columns: 1fr 1.16fr;
+  column-gap: clamp(45px, 7vw, 115px);
+  align-items: center;
+}
+.story-letter {
+  position: relative;
+  max-width: 600px;
+  padding: 37px 39px 30px;
+  font-size: clamp(16px, 1.2vw, 18px);
+  line-height: 1.9;
+  color: var(--ink);
+  isolation: isolate;
+}
+.story-letter::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #fcf9f1;
+  box-shadow:
+    0 16px 40px #70563c0a,
+    0 1px 2px #70563c0a;
+  border: 1px solid #e4d9c8;
+  transform: rotate(-1.5deg);
+  z-index: -1;
+}
+.story-letter > p,
+.story-letter > .letter-signature {
+  position: relative;
+  z-index: 1;
+}
+.story-letter p + p {
+  margin-top: 22px;
+}
+.letter-signature {
+  margin-top: 27px;
+}
+.letter-signature span {
+  font-size: 12px;
+}
+.letter-signature em {
+  font-size: 26px;
+}
+.letter-embellishment {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  color: #c7a7aa;
+}
+.letter-heart-outline {
+  position: absolute;
+  right: 15px;
+  top: 9px;
+  opacity: 0.13;
+  transform: rotate(17deg);
+}
+.letter-star {
+  position: absolute;
+  left: 16px;
+  bottom: 25px;
+  width: 16px;
+  height: 16px;
+  opacity: 0.65;
+}
+.letter-paper-heart {
+  position: absolute;
+  right: 15px;
+  bottom: 13px;
+  width: 82px;
+  height: 82px;
+  transform: rotate(14deg);
+  opacity: 0.45;
+}
+.timeline-intro > p:last-of-type {
+  font-size: 15px;
+  line-height: 1.9;
+  max-width: 360px;
+}
+.timeline-art {
+  position: relative;
+  width: min(100%, 390px);
+  margin: 20px 0 -10px;
+  isolation: isolate;
+}
+.timeline-art > svg {
+  width: 100%;
+  height: auto;
+}
+.timeline-art .timeline-art-bow {
+  position: absolute;
+  left: 31%;
+  top: 36%;
+  width: 40%;
+  height: auto;
+  transform: rotate(-8deg);
+}
+@media (max-width: 1024px) {
+  .story {
+    column-gap: 38px;
+  }
+  .story-letter {
+    padding: 30px 27px 26px;
+    font-size: 16px;
+  }
+  .letter-paper-heart {
+    width: 63px;
+    height: 63px;
+  }
+  .letter-signature em {
+    font-size: 23px;
+  }
+  .timeline-intro > p:last-of-type {
+    font-size: 14px;
+  }
+  .timeline-art {
+    margin-top: 24px;
+  }
+}
+@media (max-width: 700px) {
+  .story {
+    grid-template-columns: 1fr;
+    gap: 31px;
+  }
+  .story-letter {
+    max-width: none;
+    padding: 27px 24px 24px;
+    font-size: 16px;
+    line-height: 1.85;
+  }
+  .story-letter p + p {
+    margin-top: 20px;
+  }
+  .story-letter > p:first-of-type br {
+    display: none;
+  }
+  .letter-signature {
+    margin-top: 23px;
+    gap: 7px;
+  }
+  .letter-signature .drawn-bow {
+    width: 54px;
+  }
+  .letter-signature span {
+    font-size: 11px;
+  }
+  .letter-signature em {
+    font-size: 23px;
+  }
+  .letter-heart-outline {
+    width: 72px;
+    height: 72px;
+    right: 9px;
+    top: 9px;
+  }
+  .letter-paper-heart {
+    width: 56px;
+    height: 56px;
+    right: 10px;
+    bottom: 12px;
+    opacity: 0.35;
+  }
+  .timeline-intro > p:last-of-type {
+    font-size: 14px;
+    max-width: none;
+  }
+  .timeline-art {
+    width: min(100%, 310px);
+    margin: 16px auto -4px;
+  }
+}
+@media (max-width: 360px) {
+  .story-letter {
+    padding: 25px 21px;
+    font-size: 15px;
+  }
+  .letter-signature em {
+    font-size: 21px;
+  }
+  .letter-paper-heart {
+    width: 45px;
+    height: 45px;
+  }
+  .timeline-art {
+    width: 270px;
+  }
+}
+/* The supplied photograph keeps its complete composition; the venue has functional directions. */
+.event-information {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 45px;
+  margin-top: 50px;
+  padding: 30px 0;
+}
+.event-info h3 {
+  font-size: 32px;
+}
+.event-info p {
+  font-size: 13px;
+}
+.venue-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  align-items: center;
+  gap: clamp(35px, 6vw, 95px);
+  margin-top: 55px;
+  padding-bottom: 15px;
+}
+.venue-photo {
+  min-width: 0;
+  margin: 0;
+  padding: 9px;
+  border: 1px solid #d5c8aa;
+  background: var(--paper-light);
+  transform: rotate(-1deg);
+  box-shadow: 0 13px 30px #6e563915;
+}
+.venue-photo img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3/2;
+  object-fit: contain;
+}
+.venue-copy {
+  min-width: 0;
+}
+.venue-copy h3 {
+  font-size: clamp(45px, 4.1vw, 61px);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+.venue-copy > p {
+  margin-top: 21px;
+  font-size: 15px;
+  line-height: 1.95;
+  color: var(--muted);
+  max-width: 390px;
+}
+.venue-copy address {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  margin-top: 25px;
+  font-size: 16px;
+  line-height: 1.8;
+  font-style: normal;
+  color: var(--ink);
+}
+.venue-copy address svg {
+  flex-shrink: 0;
+  color: #89724e;
+  margin-top: 5px;
+}
+.venue-actions {
+  margin-top: 28px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 13px;
+}
+.venue-actions > .button {
+  font-size: 12px;
+  padding: 14px 21px;
+  gap: 22px;
+  min-height: 53px;
+}
+.venue-website {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 12px;
+  min-height: 44px;
+  border-bottom: 1px solid #bba77b;
+  transition: color 0.2s;
+}
+.venue-website:hover {
+  color: var(--rose);
+}
+.details-bottom {
+  margin-top: 37px;
+  padding-top: 29px;
+  border-top: 1px solid #c7b996;
+}
+.details-bottom > p {
+  font-size: 12px;
+}
+/* The response card is deliberately larger, with comfortable fields and readable labels. */
+.rsvp-layout {
+  grid-template-columns: 0.94fr 1.18fr;
+  gap: clamp(45px, 6.5vw, 105px);
+}
+.rsvp-paper {
+  width: 100%;
+  padding: 39px 41px 32px;
+}
+.rsvp-paper::after {
+  inset: 8px;
+}
+.rsvp-intro > p:last-of-type {
+  font-size: 16px;
+  line-height: 1.95;
+}
+.rsvp-deadline {
+  font-size: 13px;
+}
+.attendance-fieldset {
+  margin-bottom: 28px;
+}
+.attendance-fieldset legend,
+.form-field label {
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+.attendance-options {
+  gap: 12px;
+}
+.attendance-option {
+  font-size: 13px;
+  min-height: 59px;
+  padding: 13px 12px;
+  gap: 10px;
+}
+.radio-indicator {
+  width: 15px;
+  height: 15px;
+}
+.form-field {
+  margin-bottom: 28px;
+}
+.form-field input,
+.form-field textarea {
+  font-size: 17px;
+  line-height: 1.8;
+  padding: 10px 0 15px;
+}
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  font-size: 14px;
+  line-height: 1.8;
+}
+.form-field textarea {
+  min-height: 123px;
+  max-height: 320px;
+}
+.optional {
+  font-size: 12px;
+  float: none;
+  display: inline-block;
+  margin-left: 7px;
+  color: var(--muted);
+}
+.rsvp-submit {
+  min-height: 59px;
+  font-size: 14px;
+  padding: 16px 22px;
+  gap: 16px;
+}
+.local-notice {
+  font-size: 12px;
+  line-height: 1.8;
+  margin-top: 23px;
+  gap: 9px;
+}
+.field-error {
+  font-size: 12px;
+}
+.rsvp-success h3 {
+  font-size: 52px;
+}
+.rsvp-success > p {
+  font-size: 15px;
+  max-width: 400px;
+  line-height: 1.8;
+}
+.rsvp-success blockquote {
+  font-size: 25px;
+  margin: 27px 0;
+}
+.rsvp-success .button {
+  font-size: 13px;
+  min-height: 52px;
+  padding: 13px 20px;
+}
+@media (max-width: 1024px) {
+  .venue-layout {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 32px;
+  }
+  .venue-copy h3 {
+    font-size: 43px;
+  }
+  .venue-copy > p {
+    font-size: 14px;
+    margin-top: 16px;
+  }
+  .venue-copy address {
+    font-size: 14px;
+    margin-top: 19px;
+  }
+  .venue-actions {
+    margin-top: 21px;
+  }
+  .rsvp-layout {
+    gap: 35px;
+    grid-template-columns: 0.9fr 1.15fr;
+  }
+  .rsvp-paper {
+    padding: 31px 29px 27px;
+  }
+  .attendance-options {
+    grid-template-columns: 1fr;
+  }
+  .attendance-option {
+    justify-content: flex-start;
+    font-size: 14px;
+    padding: 13px 15px;
+  }
+  .rsvp-intro > p:last-of-type {
+    font-size: 15px;
+  }
+  .rsvp-deadline {
+    font-size: 12px;
+  }
+  .rsvp-success h3 {
+    font-size: 46px;
+  }
+}
+@media (max-width: 700px) {
+  .event-information {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-top: 34px;
+    padding: 8px 0;
+  }
+  .event-info h3 {
+    font-size: 29px;
+  }
+  .event-info p {
+    font-size: 13px;
+  }
+  .venue-layout {
+    grid-template-columns: 1fr;
+    gap: 29px;
+    margin-top: 36px;
+    padding: 0;
+  }
+  .venue-photo {
+    padding: 7px;
+  }
+  .venue-copy h3 {
+    font-size: 47px;
+  }
+  .venue-copy > p {
+    font-size: 15px;
+    max-width: none;
+    line-height: 1.85;
+    margin-top: 17px;
+  }
+  .venue-copy address {
+    font-size: 15px;
+    margin-top: 20px;
+  }
+  .venue-actions {
+    margin-top: 23px;
+    gap: 12px;
+  }
+  .venue-actions > .button {
+    font-size: 12px;
+    min-height: 54px;
+  }
+  .venue-website {
+    font-size: 13px;
+  }
+  .details-bottom {
+    margin-top: 31px;
+    padding-top: 25px;
+  }
+  .details-bottom > p {
+    font-size: 11px;
+  }
+  .details-bottom > .tiny-star {
+    top: 35px;
+  }
+  .rsvp-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .rsvp-paper {
+    padding: 29px 24px 25px;
+  }
+  .rsvp-intro > p:last-of-type {
+    font-size: 15px;
+    max-width: 285px;
+  }
+  .rsvp-deadline {
+    font-size: 12px;
+  }
+  .rsvp-bow {
+    width: 93px;
+    right: 0;
+    bottom: 36px;
+    opacity: 0.45;
+  }
+  .attendance-fieldset legend,
+  .form-field label {
+    font-size: 14px;
+    margin-bottom: 13px;
+  }
+  .attendance-option {
+    font-size: 13px;
+    min-height: 56px;
+  }
+  .form-field {
+    margin-bottom: 26px;
+  }
+  .form-field input,
+  .form-field textarea {
+    font-size: 16px;
+    padding: 10px 0 13px;
+  }
+  .form-field input::placeholder,
+  .form-field textarea::placeholder {
+    font-size: 13px;
+  }
+  .optional {
+    font-size: 11px;
+    margin-left: 5px;
+  }
+  .rsvp-submit {
+    font-size: 13px;
+    padding: 16px 17px;
+    min-height: 57px;
+    gap: 12px;
+  }
+  .local-notice {
+    font-size: 11px;
+    margin-top: 21px;
+  }
+  .rsvp-success h3 {
+    font-size: 45px;
+  }
+  .rsvp-success > p {
+    font-size: 14px;
+  }
+  .rsvp-success blockquote {
+    font-size: 24px;
+  }
+}
+@media (max-width: 360px) {
+  .venue-copy h3 {
+    font-size: 42px;
+  }
+  .rsvp-paper {
+    padding: 27px 20px 24px;
+  }
+  .rsvp-submit {
+    font-size: 12px;
+    padding-inline: 14px;
+  }
+  .form-field label,
+  .attendance-fieldset legend {
+    font-size: 13px;
+  }
+  .optional {
+    display: block;
+    margin-left: 0;
+    margin-top: 4px;
+  }
+  .rsvp-intro > p:last-of-type {
+    font-size: 14px;
+  }
+  .rsvp-bow {
+    width: 78px;
+    right: 0;
+    bottom: 32px;
+  }
+  .rsvp-deadline {
+    font-size: 11px;
+  }
+  .local-notice {
+    font-size: 10px;
+  }
+  .rsvp-success h3 {
+    font-size: 39px;
+  }
+}
+
+/* A single alignment and spacing rhythm for each mobile text stack. */
+@media (max-width: 700px) {
+  .section-space { padding-inline: clamp(20px, 5.6vw, 30px); padding-block: 64px; }
+  .hero-description { font-size: 14px; line-height: 1.75; max-width: 35ch; text-wrap: pretty; }
+  .hero-bottom { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 24px 0; text-align: center; }
+  .hero-bottom > span:first-child { display: block; width: 100%; font-size: 13px; line-height: 1.65; }
+  .hero-bottom .scroll-cue { display: inline-flex; align-items: center; justify-content: center; gap: 12px; font-size: 12px; line-height: 1.6; }
+  .story-heading, .section-heading, .details-heading, .timeline-intro, .rsvp-intro { text-align: center; }
+  .story-heading h2, .section-heading h2, .details-heading h2, .timeline-intro h2, .rsvp-intro h2 { font-size: clamp(38px, 10.5vw, 52px); line-height: 1.12; text-wrap: balance; margin-inline: auto; }
+  .story-ornament { justify-content: center; }
+  .story-letter { padding: 28px 22px; text-align: left; font-size: 16px; line-height: 1.8; }
+  .story-letter p { margin: 0; text-wrap: pretty; }
+  .story-letter p + p { margin-top: 24px; }
+  .letter-signature { display: flex; align-items: center; justify-content: flex-start; gap: 12px; margin-top: 28px; text-align: left; }
+  .letter-signature span { display: block; font-size: 13px; line-height: 1.6; }
+  .letter-signature em { display: inline-block; font-size: clamp(21px, 5.8vw, 26px); line-height: 1.3; }
+  .section-heading > p:last-child, .timeline-intro > p:last-of-type, .rsvp-intro > p:last-of-type { max-width: 35ch; margin-inline: auto; font-size: 15px; line-height: 1.75; text-wrap: pretty; }
+  .timeline-art { margin-inline: auto; }
+  .event-info p, .timeline-text p { font-size: 14px; line-height: 1.7; text-wrap: pretty; }
+  .timeline-text { text-align: left; }
+  .details-bottom > p, .details-bottom small { text-align: center; line-height: 1.7; }
+  .rsvp-deadline { text-align: center; margin-inline: auto; }
+  .closing { text-align: center; }
+  .closing-message { font-size: 15px; line-height: 1.7; }
+  .closing-signature { font-size: 24px; line-height: 1.35; text-align: center; margin-top: 24px; }
+  .closing-signature > span { display: block; font-size: 14px; line-height: 1.7; margin-top: 12px; }
+  .footer { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; padding: 28px 20px; text-align: center; }
+  .replay-button { justify-content: center; line-height: 1.6; }
+}
+/* The same blue/rose satin photograph as the hero, with independently untied pieces. */
+.folded-card .satin-bow { width: 90%; max-width: none; height: auto; left: 50%; top: 50%; transform: translate(-50%, -34%); overflow: visible; pointer-events: none; }
+.satin-bow .satin-piece { will-change: transform, opacity; }
+.card-ribbon.ribbon-blue { right: 50%; background: linear-gradient(#d7e3ee,#92aabd 42%,#e1ebf2 56%,#8da5b9); }
+.card-ribbon.ribbon-rose { left: 50%; background: linear-gradient(#f1cbd1,#c58e9c 42%,#f6d5d6 56%,#c48c9a); }
+.invitation-content > .button { font-size: 14px; gap: 14px; }
+
+@media (max-width: 700px) {
+  .rsvp-deadline { width: 100%; justify-content: center; }
+  .details-bottom { align-items: flex-start; gap: 20px; }
+  .details-bottom > p, .details-bottom small { text-align: left; font-size: 12px; }
+  .choice-bottom { font-size: 12px; line-height: 1.5; }
+  .choice-bottom svg { display: none; }
+  .prediction-feedback { font-size: 13px; line-height: 1.75; }
+  .prediction-feedback > span { font-size: 12px; line-height: 1.65; margin-top: 10px; }
+  .countdown-unit > small, .timeline-time { font-size: 12px; }
+  .replay-button { font-size: 12px; }
+}
+@media (max-height: 600px) and (min-width: 600px) {
+  .invitation-parcel { margin-bottom: 20px; }
+}

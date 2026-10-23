@@ -1,0 +1,23 @@
+import { defineConfig, devices } from '@playwright/test';
+import { existsSync } from 'node:fs';
+const chrome = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+export default defineConfig({
+  testDir: './tests',
+  timeout: 45000,
+  fullyParallel: true,
+  workers: 2,
+  reporter: [['list'], ['html', { open: 'never' }]],
+  use: {
+    ...devices['Desktop Chrome'],
+    baseURL: 'http://127.0.0.1:5186',
+    viewport: { width: 1440, height: 1000 },
+    launchOptions: { executablePath: existsSync(chrome) ? chrome : undefined },
+    screenshot: 'only-on-failure',
+    trace: 'retain-on-failure',
+  },
+  webServer: {
+    command: 'npm run dev -- --port 5186 --strictPort',
+    url: 'http://127.0.0.1:5186',
+    reuseExistingServer: true,
+  },
+});
